@@ -53,18 +53,16 @@ namespace Transpose {
                         {
                             while (!sr.EndOfStream)
                             {
-                                //TODO: 
-                                //To Be replaced with ';'
                                 string[] line = sr.ReadLine().Split(file.Delimitter.ToCharArray());
                                 DataColumn column = myDt.Columns.Add();
-                                foreach (string lstElement in line)
+                                foreach (string value in line)
                                 {
                                     myDt.Rows.Add();
-                                    myDt.Rows[Array.IndexOf(line, lstElement)][column] = lstElement;
+                                    myDt.Rows[Array.IndexOf(line, value)][column] = value;
                                 }
                             }
                         }
-                        Console.WriteLine("Parsing Fininshed ok!!!");
+                        Console.WriteLine("Transformation fininshed !!!");
                         ExportFile(myDt, file.Path);
                     }
                     catch (Exception ex)
