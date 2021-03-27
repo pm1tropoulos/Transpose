@@ -15,3 +15,4 @@ C:\Users\PANAGIOTIS\source\repos\Transpose\TransposeTest\obj\Debug\TransposeTest
 C:\Users\PANAGIOTIS\source\repos\Transpose\TransposeTest\obj\Debug\TransposeTest.csproj.CopyComplete
 C:\Users\PANAGIOTIS\source\repos\Transpose\TransposeTest\obj\Debug\TransposeTest.dll
 C:\Users\PANAGIOTIS\source\repos\Transpose\TransposeTest\obj\Debug\TransposeTest.pdb
+C:\Users\PANAGIOTIS\source\repos\Transpose\TransposeTest\bin\Debug\Data\Test_4.csv

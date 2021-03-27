@@ -5,3 +5,4 @@ C:\Users\PANAGIOTIS\source\repos\Transpose\Transpose\obj\Debug\Transpose.csprojA
 C:\Users\PANAGIOTIS\source\repos\Transpose\Transpose\obj\Debug\Transpose.csproj.CoreCompileInputs.cache
 C:\Users\PANAGIOTIS\source\repos\Transpose\Transpose\obj\Debug\Transpose.exe
 C:\Users\PANAGIOTIS\source\repos\Transpose\Transpose\obj\Debug\Transpose.pdb
+C:\Users\PANAGIOTIS\source\repos\Transpose\Transpose\bin\Debug\Data\Test_4.csv

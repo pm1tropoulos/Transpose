@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Transpose;
 using Transpose.Factory;
 using Transpose.Interfaces;
+using Transpose.Enums;
 
 namespace TransposeTest {
     [TestClass]
@@ -11,9 +12,9 @@ namespace TransposeTest {
                 
         [TestMethod]
         public void Test_TransposeToolCsv_File_Does_Not_Exist() {
-            string path = "C:\\Users\\PANAGIOTIS\\Documents\\TECAN\\Test2.csv";
+            string path = @"Data\Test2.csv";
             string ext = Path.GetExtension(path).Remove(0, 1);
-            Transpose.Enums.fileType fileType = (Transpose.Enums.fileType)Enum.Parse(typeof(Transpose.Enums.fileType), ext, true);
+            Filetype fileType = (Filetype)Enum.Parse(typeof(Filetype), ext, true);
             string expected = "The file you provided does not exist";
             
             using (var sw = new StringWriter()) {
@@ -30,9 +31,9 @@ namespace TransposeTest {
 
         [TestMethod]
         public void Test_TransposeToolCsv_File_Has_No_Content() {
-            string path = "C:\\Users\\PANAGIOTIS\\Documents\\TECAN\\Test_4.csv";
+            string path = @"Data\Test_4.csv";
             string ext = Path.GetExtension(path).Remove(0, 1);
-            Transpose.Enums.fileType fileType = (Transpose.Enums.fileType)Enum.Parse(typeof(Transpose.Enums.fileType), ext, true);
+            Filetype fileType = (Filetype)Enum.Parse(typeof(Filetype), ext, true);
             string expected = "The file you provided has no content";
 
             using (var sw = new StringWriter())

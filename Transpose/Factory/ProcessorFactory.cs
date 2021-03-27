@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Transpose.Enums;
 using Transpose.Interfaces;
 
 namespace Transpose.Factory {
     public class ProcessFactory {
         public IFileProcess process;
-        public MyFile file;
+        public MyFile _file;
 
-        public ProcessFactory(MyFile _file) {
-            file = _file;
+        public ProcessFactory(MyFile file) {
+            _file = file;
         }
         public IFileProcess GetProcess() {
-            switch (file.FileType)
+            switch (_file.FileType)
             {
-                case Enums.fileType.csv:
-                process = new TransposeToolCsv(file);
+                case Filetype.CSV:
+                process = new TransposeToolCsv(_file);
                 break;
             }
             return process;

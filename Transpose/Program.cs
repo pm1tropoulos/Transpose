@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Transpose.Factory;
 using Transpose.Interfaces;
+using Transpose.Enums;
 
-namespace Transpose
-{
+namespace Transpose {
     class Program {
 
         static void Main(string[] args) {
@@ -17,10 +14,10 @@ namespace Transpose
             Console.WriteLine("Please insert the csv File path...");
             string path = Console.ReadLine().ToString();
             string ext = Path.GetExtension(path).Remove(0, 1);
-            string[] enums = Enum.GetNames(typeof(Enums.fileType));
+            string[] enums = Enum.GetNames(typeof(Enums.Filetype));
             if(!enums.Contains(ext))
                 Console.WriteLine("You should choose a format according to Enums!");
-            Enums.fileType fileType = (Enums.fileType)Enum.Parse(typeof(Enums.fileType), ext, true);
+            Filetype fileType = (Filetype)Enum.Parse(typeof(Filetype), ext, true);
             Console.WriteLine($"I will read the .csv from the path: {path}\n");
             MyFile myFile = new MyFile(fileType, path, ";");
 
