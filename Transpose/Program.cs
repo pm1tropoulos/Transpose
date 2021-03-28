@@ -14,7 +14,7 @@ namespace Transpose {
             Console.WriteLine("Please insert the csv File path...");
             string path = Console.ReadLine().ToString();
             string ext = Path.GetExtension(path).Remove(0, 1);
-            string[] enums = Enum.GetNames(typeof(Enums.Filetype));
+            string[] enums = Enum.GetNames(typeof(Filetype));
             if(!enums.Contains(ext))
                 Console.WriteLine("You should choose a format according to Enums!");
             Filetype fileType = (Filetype)Enum.Parse(typeof(Filetype), ext, true);
