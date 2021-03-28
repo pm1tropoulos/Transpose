@@ -43,9 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\fileType.cs" />
+    <Compile Include="Enums\Filetype.cs" />
     <Compile Include="Factory\ProcessorFactory.cs" />
-    <Compile Include="Interfaces\ICsvFile.cs" />
     <Compile Include="Interfaces\IFile.cs" />
     <Compile Include="Interfaces\IFileProcess.cs" />
     <Compile Include="Interfaces\ITranspose.cs" />

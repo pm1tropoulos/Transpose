@@ -14,6 +14,6 @@ namespace Transpose {
             FileType = type;
             Path = path;
             Delimitter = delimitter;
-        }
+            }
     }
 }
