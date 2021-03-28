@@ -19,7 +19,7 @@ namespace Transpose {
                 Console.WriteLine("You should choose a format according to Enums!");
             Filetype fileType = (Filetype)Enum.Parse(typeof(Filetype), ext, true);
             Console.WriteLine($"I will read the .csv from the path: {path}\n");
-            MyFile myFile = new MyFile(fileType, path, ";");
+            IFile myFile = new MyFile(fileType, path, ";");
 
             ProcessFactory factory = new ProcessFactory(myFile);
             IFileProcess csvProcess = factory.GetProcess();

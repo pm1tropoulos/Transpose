@@ -4,9 +4,9 @@ using Transpose.Interfaces;
 namespace Transpose.Factory {
     public class ProcessFactory {
         public IFileProcess process;
-        public MyFile _file;
+        public IFile _file;
 
-        public ProcessFactory(MyFile file) {
+        public ProcessFactory(IFile file) {
             _file = file;
         }
         public IFileProcess GetProcess() {

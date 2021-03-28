@@ -9,12 +9,11 @@ using Transpose.Interfaces;
 namespace Transpose {
     public class TransposeToolCsv : IFileProcess {
 
-        private MyFile _myFile;
+        private IFile _myFile;
 
-        public TransposeToolCsv(MyFile file) {
+        public TransposeToolCsv(IFile file) {
             _myFile = file;
-        }
-
+            }
 
         /// <summary>
         /// Concrete ReadFile for csv files
@@ -22,58 +21,57 @@ namespace Transpose {
         /// <param name="path"></param>
         /// <param name="Type"></param>
         /// <returns></returns>
-        public void ProcessTranspose(MyFile file) {
+        public void ProcessTranspose(IFile file) {
 
 
             DataTable myDt = new DataTable
-            {
+                {
                 TableName = "TransportedCSV"
-            };
+                };
 
             if (!File.Exists(file.Path))
-            {
-                Console.WriteLine("The file you provided does not exist");
-            }
-
-            else
-            {
-                var Length = new FileInfo(file.Path).Length;
-                if (Length == 0)
                 {
-                    Console.WriteLine("The file you provided has no content");
+                Console.WriteLine("The file you provided does not exist");
                 }
 
-                else
+            else
                 {
-
-                    try
+                var Length = new FileInfo(file.Path).Length;
+                if (Length == 0)
                     {
-                        using (var sr = new StreamReader(file.Path))
+                    Console.WriteLine("The file you provided has no content");
+                    }
+
+                else
+                    {
+                    try
                         {
-                            while (!sr.EndOfStream)
+                        using (var sr = new StreamReader(file.Path))
                             {
+                            while (!sr.EndOfStream)
+                                {
                                 string[] line = sr.ReadLine().Split(file.Delimitter.ToCharArray());
                                 DataColumn column = myDt.Columns.Add();
                                 foreach (string value in line)
-                                {
+                                    {
                                     myDt.Rows.Add();
                                     myDt.Rows[Array.IndexOf(line, value)][column] = value;
+                                    }
                                 }
                             }
-                        }
                         Console.WriteLine("Transformation fininshed !!!");
                         ExportFile(myDt, file.Path);
-                    }
+                        }
                     catch (Exception ex)
-                    {
+                        {
                         Console.WriteLine("**************************************");
                         Console.WriteLine(ex.Message);
                         Console.WriteLine("**************************************\n");
+                        }
                     }
-                }
 
+                }
             }
-        }
 
         /// <summary>
         /// Exports the dataTable parameter into a specific path
@@ -85,23 +83,23 @@ namespace Transpose {
             Console.WriteLine($"Export started .... \n");
             StringBuilder sb = new StringBuilder();
             try
-            {
-                foreach (DataRow row in tbl.Rows)
                 {
-                    if (!row.ItemArray.All(r => r is DBNull))
+                foreach (DataRow row in tbl.Rows)
                     {
+                    if (!row.ItemArray.All(r => r is DBNull))
+                        {
                         IEnumerable<string> fields = row.ItemArray.Select(field => field.ToString());
                         sb.AppendLine(string.Join(_myFile.Delimitter, fields));
+                        }
                     }
                 }
-            }
             catch (Exception ex)
-            {
+                {
                 Console.WriteLine(ex.Message);
-            }
+                }
 
             File.WriteAllText(exportPath, sb.ToString());
             Console.WriteLine($"File is placed at: {exportPath}");
+            }
         }
     }
-}
