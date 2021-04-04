@@ -21,9 +21,8 @@ namespace Transpose {
             Console.WriteLine($"I will read the .csv from the path: {path}\n");
             IFile myFile = new MyFile(fileType, path, ";");
 
-            ProcessFactory factory = new ProcessFactory(myFile);
-            IFileProcess csvProcess = factory.GetProcess();
-            csvProcess.ProcessTranspose(myFile);
+            IFileProcess fileProcess = ProcessFactory.GetProcess(myFile);
+            fileProcess.ProcessTranspose(myFile);
            
         }
 

@@ -20,9 +20,8 @@ namespace TransposeTest {
             using (var sw = new StringWriter()) {
                 Console.SetOut(sw);
                 MyFile myFile = new MyFile(fileType, path, ";");
-                ProcessFactory factory = new ProcessFactory(myFile);
-                IFileProcess csvProcess = factory.GetProcess();
-                csvProcess.ProcessTranspose(myFile);
+                IFileProcess fileProcess = ProcessFactory.GetProcess(myFile);
+                fileProcess.ProcessTranspose(myFile);
 
                 var result = sw.ToString().Trim();
                 Assert.AreEqual(expected, result);
@@ -40,9 +39,8 @@ namespace TransposeTest {
             {
                 Console.SetOut(sw);
                 MyFile myFile = new MyFile(fileType, path, ";");
-                ProcessFactory factory = new ProcessFactory(myFile);
-                IFileProcess csvProcess = factory.GetProcess();
-                csvProcess.ProcessTranspose(myFile);
+                IFileProcess fileProcess = ProcessFactory.GetProcess(myFile);
+                fileProcess.ProcessTranspose(myFile);
 
                 var result = sw.ToString().Trim();
                 Assert.AreEqual(expected, result);
